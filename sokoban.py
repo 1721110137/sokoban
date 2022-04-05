@@ -94,6 +94,7 @@ class Sokoban:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
             self.muneco_columna -= 1
+      
 
   def moverAbajo(self):
     """Controla el movimiento del muñeco hacia abajo
