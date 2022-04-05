@@ -79,10 +79,21 @@ class Sokoban:
   def moverIzquierda(self):
     """Controla el movimiento del muñeco a la derecha
     """
+    #Muñeco, espacio [1, 0] <- [0,1]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
       self.muneco_columna -= 1
+    #Muñeco, meta [4, 0] <- [5,1]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 4:
+            self.mapa[self.muneco_fila][self.muneco_columna] = 1
+            self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
+            self.muneco_columna -= 1
+          
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
+            self.mapa[self.muneco_fila][self.muneco_columna] = 4
+            self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
+            self.muneco_columna -= 1
 
   def moverAbajo(self):
     """Controla el movimiento del muñeco hacia abajo
