@@ -33,18 +33,6 @@ class Sokoban:
 
   """
   mapa = [
-      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-      [1,3,3,3,1,1,1,1,1,3,3,3,1,1,1,1,1,1,1,1],
-      [1,3,0,3,1,1,1,1,1,3,1,3,3,3,3,3,3,1,1,1],
-      [1,3,1,3,3,3,3,3,3,3,1,1,3,1,1,3,3,1,1,1],
-      [1,3,1,3,1,1,1,1,1,1,1,1,3,2,1,3,3,3,3,1],
-      [1,3,1,1,4,1,2,1,1,3,3,3,3,1,1,3,3,3,3,1],
-      [1,3,1,1,1,1,3,3,1,1,1,1,1,1,1,1,3,3,3,3],
-      [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,1,1,4,3],
-      [1,3,1,1,1,1,1,1,1,3,3,3,3,1,1,1,1,1,4,3],
-      [1,3,1,2,1,1,1,1,1,1,1,1,1,1,1,3,1,1,4,3],
-      [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,3,3,3,3],
-      [1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
   ]
 
   #Posicion inicial del muñeco en el mapa
@@ -54,27 +42,20 @@ class Sokoban:
   def imprimirMapa(self):
     """Imprime el mapa completo
     """
-    for fila in self.mapa:
-        print(fila)
+    file = open("lvl1.txt","r")
+    for fila in file:
+      print(fila)
+      for c in file:
+        print(c)
 
   def moverDerecha(self):
     """Controla el movimiento del muñeco a la derecha
     """
-       #00 - Muñeco, camino -> [0,1] -> [1,0]
+    #00 - Muñeco, camino -> [2,3] -> [3,2]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 1:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 1
-            self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
-            self.muneco_columna += 1
-    #01 - Muñeco, meta -> [0,4] -> [1,5]        
-    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 4:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 1
-            self.mapa[self.muneco_fila][self.muneco_columna + 1] = 5
-            self.muneco_columna += 1
-          
-    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 1:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 4
-            self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
-            self.muneco_columna += 1
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
+      self.muneco_columna += 1
 
   def moverIzquierda(self):
     """Controla el movimiento del muñeco a la derecha
