@@ -173,3 +173,4 @@ class Sokoban:
 
 juego = Sokoban()
 juego.jugar()
+
