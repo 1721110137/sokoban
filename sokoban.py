@@ -115,6 +115,12 @@ class Sokoban:
             self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
             self.muneco_fila += 1
       
+    #Muñeco_meta, espacio [1, 5] <- [0, 4]    
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 1:
+            self.mapa[self.muneco_fila][self.muneco_columna] = 4
+            self.mapa[self.muneco_fila + 1][self.muneco_columna] = 0
+            self.muneco_fila += 1
+      
 
   def moverArriba(self):
     
