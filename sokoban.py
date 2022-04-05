@@ -65,6 +65,7 @@ class Sokoban:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
             self.muneco_columna += 1
+      
     #01 - Muñeco, meta -> [0,4] -> [1,5]        
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
@@ -77,22 +78,25 @@ class Sokoban:
             self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
             self.muneco_columna += 1
 
+    #03 - Muñeco_meta, meta [5, 4] -> [4, 5]
+
+
   def moverIzquierda(self):
     """Controla el movimiento del muñeco a la derecha
     """
-    #Muñeco, espacio [1, 0] <- [0,1]
+    #00 - Muñeco, espacio [1, 0] <- [0,1]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
       self.muneco_columna -= 1
       
-    #Muñeco, meta [4, 0] <- [5,1]
+    #01 - Muñeco, meta [4, 0] <- [5,1]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
             self.muneco_columna -= 1
       
-    #Muñeco_meta, espacio [1, 5] <- [0, 4]    
+    #02 - Muñeco_meta, espacio [1, 5] <- [0, 4]    
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
@@ -104,35 +108,45 @@ class Sokoban:
     [2] -> [3]
     [3] -> [2]
     """
+    #00 - Muñeco, espacio [0, 1] ab [1, 0]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila + 1][self.muneco_columna] = 0
       self.muneco_fila += 1
 
-      #Muñeco, meta [0, 4] ab [1,5]
+    #01 - Muñeco, meta [0, 4] ab [1,5]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
             self.muneco_fila += 1
       
-    #Muñeco_meta, espacio [1, 5] <- [0, 4]    
+    #02 - Muñeco_meta, espacio [5, 1] ab [4, 0]    
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 1:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila + 1][self.muneco_columna] = 0
             self.muneco_fila += 1
+
+    #03- Muñeco_meta, meta
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila +1][self.muneco_columna] == 4:
+            self.mapa[self.muneco_fila][self.muneco_columna] = 4
+            self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
+            self.muneco_fila += 1
       
   def moverArriba(self):
     
+    #00 - Muñeco, espacio [1, 0] arr [0, 1]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
       self.muneco_fila -= 1
-    #Muñeco, meta [0, 4] ab [1,5]
+      
+    #01 - Muñeco, meta [4, 0] arr [5,1]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila - 1][self.muneco_columna] = 5
             self.muneco_fila -= 1
       
+    #02 - Muñeco_meta, espacio [1, 5] arr [0, 4]  
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 1:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
