@@ -38,7 +38,7 @@ class Sokoban:
       [1,3,0,3,1,1,1,1,1,3,1,3,3,3,3,3,3,1,1,1],
       [1,3,1,3,3,3,3,3,3,3,1,1,3,1,1,3,3,1,1,1],
       [1,3,1,3,1,1,1,1,1,1,1,1,3,2,1,3,3,3,3,1],
-      [1,3,1,1,4,1,2,1,1,3,3,3,3,1,1,3,3,3,3,1],
+      [1,3,1,1,4,1,2,1,4,3,3,3,3,1,1,3,3,3,3,1],
       [1,3,1,1,1,1,3,3,1,1,1,1,1,1,1,1,3,3,3,3],
       [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,1,1,4,3],
       [1,3,1,1,1,1,1,1,1,3,3,3,3,1,1,1,1,1,4,4],
@@ -84,12 +84,26 @@ class Sokoban:
             self.mapa[self.muneco_fila][self.muneco_columna + 1] = 5
             self.muneco_columna += 1
 
-    #04 - Muñeco, caja, espacio [0, 2, 1] - > [1, 0, 2]
+    #04 - Muñeco, caja, espacio [0, 2, 1] -> [1, 0, 2]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna +1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna +2] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila][self.muneco_columna +1] = 0
       self.mapa[self.muneco_fila][self.muneco_columna +2] = 2
       self.muneco_columna += 1
+
+    #06 - Muñeco, caja, meta [0, 2, 4] -> [1, 0, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna +1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna +2] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila][self.muneco_columna +1] = 0
+      self.mapa[self.muneco_fila][self.muneco_columna +2] = 6
+      self.muneco_columna += 1
+
+
+
+
+
+
+      
       
   def moverIzquierda(self):
     """Controla el movimiento del muñeco a la derecha
