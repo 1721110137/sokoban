@@ -199,17 +199,31 @@ class Sokoban:
       self.mapa[self.muneco_fila][self.muneco_columna - 2] = 6
       self.muneco_columna -= 1
 
-    #08 - Muñeco_meta, caja, espacio [1, 2, 5] -> [2, 0, 4]
+    #08 - Muñeco_meta, caja, espacio [1, 2, 5] <- [2, 0, 4]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 4
       self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
       self.mapa[self.muneco_fila][self.muneco_columna - 2] = 2
       self.muneco_columna -= 1
 
-    #09 - Muñeco_meta, caja, meta [4, 2, 5] -> [6, 0, 4]
+    #09 - Muñeco_meta, caja, meta [4, 2, 5] <- [6, 0, 4]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 4:
       self.mapa[self.muneco_fila][self.muneco_columna] = 4
       self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
+      self.mapa[self.muneco_fila][self.muneco_columna - 2] = 6
+      self.muneco_columna -= 1
+
+      #10 - Muñeco_meta, caja_meta, espacio [1, 6, 5] -> [2, 5, 4]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 6 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
+      self.mapa[self.muneco_fila][self.muneco_columna - 2] = 2
+      self.muneco_columna -= 1
+
+    #11 - Muñeco_meta, caja_meta, meta [4, 6, 5] -> [6, 5, 4]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 6 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
       self.mapa[self.muneco_fila][self.muneco_columna - 2] = 6
       self.muneco_columna -= 1
 
