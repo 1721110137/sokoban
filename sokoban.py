@@ -61,9 +61,9 @@ class Sokoban:
     """
     #00 - Muñeco, camino -> [0,1] -> [1,0]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 1:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 1
-            self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
-            self.muneco_columna += 1
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila][self.muneco_columna + 1] = 0
+      self.muneco_columna += 1
       
     #01 - Muñeco, meta -> [0,4] -> [1,5]        
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 4:
@@ -145,8 +145,8 @@ class Sokoban:
 
   
   def moverIzquierda(self):
-    """Controla el movimiento del muñeco a la derecha
-    """
+    """Controla el movimiento del muñeco a la derecha"""
+    
     #00 - Muñeco, espacio [1, 0] <- [0,1]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
@@ -155,27 +155,34 @@ class Sokoban:
       
     #01 - Muñeco, meta [4, 0] <- [5,1]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 4:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 1
-            self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
-            self.muneco_columna -= 1
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
+      self.muneco_columna -= 1
       
     #02 - Muñeco_meta, espacio [1, 5] <- [0, 4]    
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 1:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 4
-            self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
-            self.muneco_columna -= 1
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
+      self.muneco_columna -= 1
 
     #03 - Muñeco_meta, meta [4, 5] <- [5, 4]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 4:
-            self.mapa[self.muneco_fila][self.muneco_columna] = 4
-            self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
-            self.muneco_columna -= 1
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 5
+      self.muneco_columna -= 1
 
     #04 - Muñeco, caja, espacio [1, 2, 0] <- [2, 0, 1]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
       self.mapa[self.muneco_fila][self.muneco_columna - 2] = 2
+      self.muneco_columna -= 1
+
+    #05 - Muñeco, caja, meta [4, 2, 0] <- [6, 0, 1]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila][self.muneco_columna - 1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna - 2] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila][self.muneco_columna - 1] = 0
+      self.mapa[self.muneco_fila][self.muneco_columna- 2] = 6
       self.muneco_columna -= 1
 
 
