@@ -267,7 +267,7 @@ class Sokoban:
       self.muneco_fila += 1
 
     #06 - Muñeco, caja_meta, espacio [0, 6, 1] ab [1, 5, 2]
-    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 1:
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
       self.mapa[self.muneco_fila + 2][self.muneco_columna] = 2
@@ -308,33 +308,50 @@ class Sokoban:
       self.mapa[self.muneco_fila + 2][self.muneco_columna] = 6
       self.muneco_fila += 1
 
+
+
       
   def moverArriba(self):
     """Controla el movimiento del muñeco hacia arriba"""
     
-    #00 - Muñeco, espacio [1, 0] arr [0, 1]
+    #00 - Muñeco, espacio [0, 1] arr [1, 0]
     if self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 1:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
       self.muneco_fila -= 1
       
-    #01 - Muñeco, meta [4, 0] arr [5,1]
+    #01 - Muñeco, meta [4, 0] arr [1,5]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila - 1][self.muneco_columna] = 5
             self.muneco_fila -= 1
       
-    #02 - Muñeco_meta, espacio [1, 5] arr [0, 4]  
+    #02 - Muñeco_meta, espacio [5, 1] arr [4, ]  
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 1:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
             self.muneco_fila -= 1
       
-    #03- Muñeco_meta, meta [4, 5] arr [ 5, 4]
+    #03- Muñeco_meta, meta [5, 4] arr [ 4, 5]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 4:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
             self.mapa[self.muneco_fila - 1][self.muneco_columna] = 5
             self.muneco_fila -= 1
+
+    #04 - Muñeco, caja, espacio [0, 2, 1] ab [1, 0, 2]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 2 and self.mapa[self.muneco_fila - 2][self.muneco_columna] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
+      self.mapa[self.muneco_fila - 2][self.muneco_columna] = 2
+      self.muneco_fila -= 1
+
+    #05 - Muñeco, caja, meta [0, 2, 4] ab [1, 0, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila - 1][self.muneco_columna] == 2 and self.mapa[self.muneco_fila - 2][self.muneco_columna] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila - 1][self.muneco_columna] = 0
+      self.mapa[self.muneco_fila - 2][self.muneco_columna] = 6
+      self.muneco_fila -= 1
+
       
   def jugar(self):
     """Controla el flujo del juego
