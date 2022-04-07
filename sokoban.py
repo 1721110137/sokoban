@@ -266,6 +266,47 @@ class Sokoban:
       self.mapa[self.muneco_fila + 2][self.muneco_columna] = 6
       self.muneco_fila += 1
 
+    #06 - Muñeco, caja_meta, espacio [0, 6, 1] ab [1, 5, 2]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 2
+      self.muneco_fila += 1
+
+    #07 - Muñeco, caja_meta, meta [0, 6, 4] ab [1, 5, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 0 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 1
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 6
+      self.muneco_fila += 1 
+
+    #08 - Muñeco_meta, caja, espacio [5, 2, 1] ab [4, 0, 2]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 2 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 0
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 2
+      self.muneco_fila += 1
+
+    #09 - Muñeco_meta, caja, meta [5, 2, 4] ab [4, 0, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 2 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 0
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 6
+      self.muneco_fila += 1
+
+    #10 - Muñeco_meta, caja_meta, espacio [5, 6, 1] ab [4, 5, 2]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 2
+      self.muneco_fila += 1
+
+    #11 - Muñeco_meta, caja_meta, meta [5, 6, 4] ab [4, 5, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila + 1][self.muneco_columna] == 6 and self.mapa[self.muneco_fila + 2][self.muneco_columna] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila + 1][self.muneco_columna] = 5
+      self.mapa[self.muneco_fila + 2][self.muneco_columna] = 6
+      self.muneco_fila += 1
 
       
   def moverArriba(self):
