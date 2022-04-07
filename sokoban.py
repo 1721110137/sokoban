@@ -38,15 +38,14 @@ class Sokoban:
       [1,3,0,3,1,1,1,1,1,3,1,3,3,3,3,3,3,1,1,1],
       [1,3,1,3,3,3,3,3,3,3,1,1,3,1,1,3,3,1,1,1],
       [1,3,1,3,1,1,1,1,1,1,1,1,3,2,1,3,3,3,3,1],
-      [1,3,1,1,4,1,2,1,4,4,3,3,3,1,1,3,3,3,3,1],
-      [1,3,1,1,1,1,3,3,1,1,1,1,1,1,1,1,3,3,3,3],
+      [1,3,1,1,4,2,1,1,4,4,3,3,3,1,1,3,3,3,3,1],
+      [1,3,1,1,4,2,4,3,1,1,1,1,1,1,1,1,3,3,3,3],
       [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,1,1,4,3],
       [1,3,1,1,1,1,1,1,1,3,3,3,3,1,1,1,1,1,4,4],
       [1,3,1,2,1,1,1,1,1,1,1,1,1,1,1,3,1,1,4,4],
       [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,3,3,3,4],
       [1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
   ]
-
   #Posicion inicial del muñeco en el mapa
   muneco_fila = 2
   muneco_columna = 2
@@ -71,7 +70,7 @@ class Sokoban:
             self.mapa[self.muneco_fila][self.muneco_columna] = 1
             self.mapa[self.muneco_fila][self.muneco_columna + 1] = 5
             self.muneco_columna += 1
-      
+
     #02 - Muñeco_meta, espacoio -> [0, 4] -> [1, 5]
     elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna + 1] == 1:
             self.mapa[self.muneco_fila][self.muneco_columna] = 4
@@ -110,15 +109,22 @@ class Sokoban:
       self.mapa[self.muneco_fila][self.muneco_columna] = 1
       self.mapa[self.muneco_fila][self.muneco_columna +1] = 5
       self.mapa[self.muneco_fila][self.muneco_columna +2] = 6
+      self.muneco_columna += 1 
+
+    #08 - Muñeco_meta, caja, espacio [5, 2, 1] -> [4, 0, 2]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna +1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna +2] == 1:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna +1] = 0
+      self.mapa[self.muneco_fila][self.muneco_columna +2] = 2
       self.muneco_columna += 1
 
+    #09 - Muñeco_meta, caja, meta [5, 2, 4] -> [4, 0, 6]
+    elif self.mapa[self.muneco_fila][self.muneco_columna] == 5 and self.mapa[self.muneco_fila][self.muneco_columna +1] == 2 and self.mapa[self.muneco_fila][self.muneco_columna +2] == 4:
+      self.mapa[self.muneco_fila][self.muneco_columna] = 4
+      self.mapa[self.muneco_fila][self.muneco_columna +1] = 0
+      self.mapa[self.muneco_fila][self.muneco_columna +2] = 6
+      self.muneco_columna += 1
 
-
-
-
-
-      
-      
   def moverIzquierda(self):
     """Controla el movimiento del muñeco a la derecha
     """
