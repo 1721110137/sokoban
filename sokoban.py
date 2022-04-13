@@ -32,29 +32,44 @@ class Sokoban:
   Arriba -> muneco_fila - 1
 
   """
-  mapa = [
-      [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
-      [1,3,3,3,1,1,1,1,1,3,3,3,1,1,1,1,1,1,1,1],
-      [1,3,0,3,1,1,1,1,1,3,1,3,3,3,3,3,3,1,1,1],
-      [1,3,1,3,3,3,3,3,3,3,1,1,3,1,1,3,3,1,1,1],
-      [1,3,1,3,1,1,1,1,1,1,1,1,3,2,1,3,3,3,3,1],
-      [1,3,1,1,4,2,1,1,4,4,3,3,3,1,1,3,3,3,3,1],
-      [1,3,1,2,4,4,4,3,1,1,1,1,1,1,1,1,3,3,3,3],
-      [1,3,1,2,4,4,4,1,1,3,1,1,1,1,1,3,1,4,4,3],
-      [1,3,1,1,1,1,1,1,1,3,3,3,3,1,1,1,1,4,4,4],
-      [1,3,1,2,1,1,1,1,1,1,1,1,1,1,1,3,1,4,4,4],
-      [1,3,1,1,1,1,1,1,1,3,1,1,1,1,1,3,3,3,3,4],
-      [1,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,1,1,1,1],
-  ]
-  #Posicion inicial del muñeco en el mapa
-  muneco_fila = 2
-  muneco_columna = 2
+  mapa = []
+  muneco_fila = 0
+  muneco_columna = 0
+  file = open("lvl1.txt","r")
+
+  def __init__(self):
+        pass
+
+  def cargarMapa(self):
+        for ghy in self.file:
+            columna = []
+            for digito in ghy:
+              if digito == "\n":
+                  continue
+              columna.append(int(digito))
+            self.mapa.append(columna)
 
   def imprimirMapa(self):
-    """Imprime el mapa completo
-    """
-    for fila in self.mapa:
-        print(fila)
+        for fila in self.mapa:
+            print(fila)
+          
+  def munlug(self):
+        for fila in range(len(self.mapa)):
+            for columna in range (len(self.mapa[fila])):
+                if self.mapa[fila][columna] == 0:
+                    self.muneco_columna = columna
+                    self.muneco_fila = fila
+                  
+  def cajasmapa(self):
+        caj = []
+        for fila in self.mapa:
+            caj2 = fila.count(2)
+            caj.append(caj2)
+        if sum(caj) == 0:
+            print ("Nivel finalizado...")
+            self.completo = True
+        else:
+            pass
 
   def moverDerecha(self):
     """Controla el movimiento del muñeco a la derecha"""
@@ -439,7 +454,10 @@ class Sokoban:
     """Controla el flujo del juego
     """
     while True:
+      self.cargarMapa()
+      self.munlug()
       self.imprimirMapa()
+      self.cajasmapa()
       opciones = "d-Derecha, s-Abajo, a-Izquierda, w-Arriba- q-Salir"
       print(opciones)
       movimiento = input("Mover a: ")
@@ -456,4 +474,3 @@ class Sokoban:
 
 juego = Sokoban()
 juego.jugar()
-
